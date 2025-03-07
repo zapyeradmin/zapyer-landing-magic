@@ -1,12 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React, { useEffect } from 'react';
+import Header from '@/components/Header';
+import Benefits from '@/components/Benefits';
+import VideoSection from '@/components/VideoSection';
+import Features from '@/components/Features';
+import Testimonials from '@/components/Testimonials';
+import CallToAction from '@/components/CallToAction';
+import Footer from '@/components/Footer';
+import LeadForm from '@/components/LeadForm';
+
+const Index: React.FC = () => {
+  // Smooth scrolling for anchor links
+  useEffect(() => {
+    const smoothScroll = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.tagName === 'A') {
+        const anchor = target as HTMLAnchorElement;
+        const href = anchor.getAttribute('href');
+        
+        if (href && href.startsWith('#') && href.length > 1) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', smoothScroll);
+    
+    return () => {
+      document.removeEventListener('click', smoothScroll);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      <Header />
+      <Benefits />
+      <VideoSection />
+      <Features />
+      <Testimonials />
+      <CallToAction />
+      <Footer />
+      <LeadForm />
     </div>
   );
 };

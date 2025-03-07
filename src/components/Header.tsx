@@ -1,0 +1,110 @@
+
+import React, { useEffect, useRef } from 'react';
+import { MessageSquare } from 'lucide-react';
+
+const Header: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  const handleWhatsAppClick = () => {
+    const message = "Olá, quero saber mais sobre o Zapyer Chat!";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/send?text=${encodedMessage}`, '_blank');
+  };
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
+  
+  return (
+    <header className="relative min-h-screen flex items-center bg-hero-pattern overflow-hidden pt-10">
+      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-zapyer-blue/5 to-zapyer-green/5 z-0"></div>
+      
+      {/* Top navigation */}
+      <nav className="absolute top-0 left-0 w-full px-6 py-4 flex justify-between items-center z-10">
+        <div className="text-zapyer-blue font-montserrat font-bold text-2xl">
+          Zapyer<span className="text-zapyer-green">Chat</span>
+        </div>
+        <div className="hidden md:flex space-x-8 items-center">
+          <a href="#benefits" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Benefícios</a>
+          <a href="#features" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Funcionalidades</a>
+          <a href="#testimonials" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Depoimentos</a>
+          <button 
+            onClick={handleWhatsAppClick}
+            className="whatsapp-button"
+          >
+            <MessageSquare size={18} />
+            Fale Conosco
+          </button>
+        </div>
+        <button className="md:hidden text-zapyer-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+      
+      {/* Hero content */}
+      <div className="container mx-auto px-6 md:px-12 pt-20 pb-12 flex flex-col md:flex-row items-center justify-between relative z-10">
+        <div className="md:w-1/2 mb-12 md:mb-0 opacity-0" ref={heroRef}>
+          <div className="staggered-animation">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zapyer-dark leading-tight mb-6">
+              Transforme seu Atendimento com o 
+              <span className="text-zapyer-blue"> Zapyer</span>
+              <span className="text-zapyer-green">Chat</span>
+            </h1>
+            <p className="text-lg text-zapyer-gray mb-8 max-w-lg">
+              Centralize a comunicação, aumente a eficiência e impulsione suas vendas com nossa solução de multiatendimento no WhatsApp.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={handleWhatsAppClick}
+                className="whatsapp-button"
+              >
+                <MessageSquare size={18} />
+                Fale Conosco no WhatsApp
+              </button>
+              <button className="secondary-button">
+                Saiba Mais
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="md:w-1/2 relative">
+          <div className="relative z-10 md:ml-auto w-full max-w-md animate-float">
+            <div className="absolute -top-8 -left-8 w-40 h-40 bg-zapyer-blue/10 rounded-full filter blur-xl"></div>
+            <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-zapyer-green/10 rounded-full filter blur-xl"></div>
+            <div className="glass-card p-2 shadow-card">
+              <img 
+                src="https://placehold.co/600x800/1E5EFA/FFFFFF.png?text=Zapyer+Chat+Interface" 
+                alt="Zapyer Chat Interface" 
+                className="w-full h-auto rounded-lg transform scale-[1.01] shadow-sm"
+                onLoad={(e) => e.currentTarget.classList.remove('img-loading')}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
