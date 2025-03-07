@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { MessageSquare } from 'lucide-react';
 
@@ -39,8 +38,12 @@ const Header: React.FC = () => {
       
       {/* Top navigation */}
       <nav className="absolute top-0 left-0 w-full px-6 py-4 flex justify-between items-center z-10">
-        <div className="text-zapyer-blue font-montserrat font-bold text-2xl">
-          Zapyer<span className="text-zapyer-green">Chat</span>
+        <div className="flex items-center">
+          <img 
+            src="/lovable-uploads/b78caee9-300c-4e95-8069-0de56aa843a1.png" 
+            alt="Zapyer Chat Logo" 
+            className="h-10 md:h-12"
+          />
         </div>
         <div className="hidden md:flex space-x-8 items-center">
           <a href="#benefits" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Benefícios</a>

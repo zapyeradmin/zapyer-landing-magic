@@ -14,8 +14,12 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <div className="text-white font-montserrat font-bold text-2xl mb-4">
-              Zapyer<span className="text-zapyer-green">Chat</span>
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/b78caee9-300c-4e95-8069-0de56aa843a1.png" 
+                alt="Zapyer Chat Logo" 
+                className="h-12 mb-4"
+              />
             </div>
             <p className="text-gray-300 mb-4">
               Transforme seu atendimento no WhatsApp com nossa solução completa de multiatendimento.
