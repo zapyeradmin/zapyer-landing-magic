@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const handleWhatsAppClick = () => {
     const message = "Olá, quero saber mais sobre o Zapyer Chat!";
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/send?text=${encodedMessage}`, '_blank');
+    window.open(`http://wa.me/5587996316081?text=${encodedMessage}`, '_blank');
   };
   
   useEffect(() => {
