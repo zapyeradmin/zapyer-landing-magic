@@ -33,6 +33,12 @@ const CallToAction: React.FC = () => {
     window.open(`http://wa.me/5587996316081?text=${encodedMessage}`, '_blank');
   };
 
+  const handleDemoClick = () => {
+    const message = "Olá, gostaria de solicitar uma demonstração do Zapyer Chat!";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`http://wa.me/5587996316081?text=${encodedMessage}`, '_blank');
+  };
+
   return (
     <section className="py-16 md:py-20 px-4 md:px-6 relative overflow-hidden">
       <div 
@@ -58,7 +64,10 @@ const CallToAction: React.FC = () => {
                 <MessageSquare size={18} />
                 Fale Conosco no WhatsApp
               </button>
-              <button className="secondary-button">
+              <button 
+                onClick={handleDemoClick}
+                className="secondary-button"
+              >
                 <span>Solicite uma Demonstração</span>
                 <ArrowRight size={18} />
               </button>
