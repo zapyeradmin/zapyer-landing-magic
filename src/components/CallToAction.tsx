@@ -34,20 +34,20 @@ const CallToAction: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
+    <section className="py-16 md:py-20 px-4 md:px-6 relative overflow-hidden">
       <div 
         ref={ctaRef}
         className="container mx-auto opacity-0"
       >
-        <div className="glass-card relative overflow-hidden rounded-2xl p-12 md:p-16 max-w-5xl mx-auto">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-zapyer-blue/10 rounded-full filter blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-zapyer-green/10 rounded-full filter blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
+        <div className="glass-card relative overflow-hidden rounded-2xl p-8 md:p-12 lg:p-16 max-w-5xl mx-auto">
+          <div className="absolute top-0 right-0 w-60 md:w-80 h-60 md:h-80 bg-zapyer-blue/10 rounded-full filter blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-60 md:w-80 h-60 md:h-80 bg-zapyer-green/10 rounded-full filter blur-3xl -z-10 transform -translate-x-1/2 translate-y-1/2"></div>
           
           <div className="text-center max-w-3xl mx-auto relative z-10">
-            <h2 className="font-montserrat font-extrabold text-3xl md:text-4xl mb-6 text-zapyer-dark">
+            <h2 className="font-montserrat font-extrabold text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6 text-zapyer-dark">
               Pronto para transformar sua empresa?
             </h2>
-            <p className="text-zapyer-gray text-lg mb-8">
+            <p className="text-zapyer-gray text-base md:text-lg mb-6 md:mb-8">
               Fale com nossa equipe e descubra como o Zapyer Chat pode levar seu atendimento ao próximo nível.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

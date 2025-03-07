@@ -106,23 +106,23 @@
   }
   
   .whatsapp-button {
-    @apply bg-zapyer-green text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2;
+    @apply bg-zapyer-green text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2 text-sm md:text-base w-full sm:w-auto;
   }
   
   .primary-button {
-    @apply bg-zapyer-blue text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2;
+    @apply bg-zapyer-blue text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2 text-sm md:text-base w-full sm:w-auto;
   }
   
   .secondary-button {
-    @apply bg-white text-zapyer-blue border border-zapyer-blue font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2;
+    @apply bg-white text-zapyer-blue border border-zapyer-blue font-semibold py-2 md:py-3 px-4 md:px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2 text-sm md:text-base w-full sm:w-auto;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-zapyer-dark mb-4 text-center;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-zapyer-dark mb-3 md:mb-4 text-center;
   }
   
   .section-subtitle {
-    @apply text-lg text-zapyer-gray max-w-2xl mx-auto text-center mb-12;
+    @apply text-base md:text-lg text-zapyer-gray max-w-2xl mx-auto text-center mb-8 md:mb-12 px-4;
   }
   
   .staggered-animation > * {
@@ -136,6 +136,23 @@
   .staggered-animation > *:nth-child(4) { animation-delay: 0.4s; }
   .staggered-animation > *:nth-child(5) { animation-delay: 0.5s; }
   .staggered-animation > *:nth-child(6) { animation-delay: 0.6s; }
+  
+  /* Mobile menu styles */
+  .mobile-menu {
+    @apply fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out;
+  }
+  
+  .mobile-menu.open {
+    @apply translate-x-0;
+  }
+  
+  .mobile-menu.closed {
+    @apply translate-x-full;
+  }
+  
+  .mobile-menu-item {
+    @apply block py-3 px-6 text-zapyer-dark border-b border-gray-100 hover:bg-zapyer-light transition-colors;
+  }
 }
 
 /* Custom scrollbar */
@@ -201,4 +218,25 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 300ms, transform 300ms;
+}
+
+/* Media queries for better responsive design */
+@media (max-width: 640px) {
+  .glass-card {
+    @apply p-6;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    @apply px-4;
+  }
 }
