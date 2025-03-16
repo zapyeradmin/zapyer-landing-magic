@@ -93,8 +93,8 @@ const Features: React.FC = () => {
             <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-zapyer-green/10 rounded-full filter blur-xl"></div>
             <div className="glass-card p-3 shadow-card rounded-xl relative z-10">
               <img 
-                src="https://placehold.co/600x400/10B981/FFFFFF.png?text=Zapyer+Interface" 
-                alt="Zapyer Chat Interface" 
+                src="/lovable-uploads/dc3f7530-ae9f-4754-bb0e-a13b9ac3c974.png" 
+                alt="Zapyer Chat Dashboard" 
                 className="w-full h-auto rounded-lg"
               />
             </div>
