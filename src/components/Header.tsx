@@ -96,11 +96,11 @@ const Header: React.FC = () => {
           <div className="relative z-10 md:ml-auto w-full max-w-md animate-float">
             <div className="absolute -top-8 -left-8 w-40 h-40 bg-zapyer-blue/10 rounded-full filter blur-xl"></div>
             <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-zapyer-green/10 rounded-full filter blur-xl"></div>
-            <div className="glass-card p-0 md:p-2 shadow-card">
+            <div className="rounded-lg overflow-hidden transform scale-150">
               <img 
                 src="/lovable-uploads/4b28a225-b59c-4c8f-9e0f-3ebf5f3377f1.png" 
                 alt="Zapyer Chat Interface no laptop e celular" 
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto"
               />
             </div>
           </div>
