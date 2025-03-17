@@ -100,8 +100,8 @@ const Header: React.FC = () => {
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-zapyer-blue/10 rounded-full filter blur-xl"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-zapyer-green/10 rounded-full filter blur-xl"></div>
             
-            {/* Image container with proper scaling */}
-            <div className="relative z-10 rounded-lg overflow-hidden transform scale-[300%] my-8 mx-auto">
+            {/* Image container with proper scaling - reduced by 30% from 300% to 210% */}
+            <div className="relative z-10 rounded-lg overflow-hidden transform scale-[210%] my-8 mx-auto">
               <img 
                 src="/lovable-uploads/4b28a225-b59c-4c8f-9e0f-3ebf5f3377f1.png" 
                 alt="Zapyer Chat Interface no laptop e celular" 
