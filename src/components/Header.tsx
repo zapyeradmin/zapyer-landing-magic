@@ -65,19 +65,19 @@ const Header: React.FC = () => {
         </button>
       </nav>
       
-      {/* Hero content */}
-      <div className="container mx-auto px-6 md:px-12 pt-20 pb-12 flex flex-col md:flex-row items-center justify-between relative z-10">
-        <div className="md:w-1/2 mb-12 md:mb-0 opacity-0" ref={heroRef}>
+      {/* Hero content - centered layout */}
+      <div className="container mx-auto px-6 md:px-12 pt-20 pb-12 flex flex-col items-center justify-center relative z-10">
+        <div className="text-center mb-12 opacity-0" ref={heroRef}>
           <div className="staggered-animation">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-zapyer-dark leading-tight mb-6">
               Transforme seu Atendimento com o 
               <span className="text-zapyer-blue"> Zapyer</span>
               <span className="text-zapyer-green">Chat</span>
             </h1>
-            <p className="text-lg text-zapyer-gray mb-8 max-w-lg">
+            <p className="text-lg text-zapyer-gray mb-8 max-w-2xl mx-auto">
               Centralize a comunicação, aumente a eficiência e impulsione suas vendas com nossa solução de multiatendimento no WhatsApp.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={handleWhatsAppClick}
                 className="whatsapp-button"
@@ -92,11 +92,11 @@ const Header: React.FC = () => {
           </div>
         </div>
         
-        <div className="md:w-1/2 relative">
-          <div className="relative z-10 md:ml-auto w-full max-w-md animate-float">
+        <div className="relative w-full max-w-4xl mx-auto">
+          <div className="relative z-10 w-full animate-float">
             <div className="absolute -top-8 -left-8 w-40 h-40 bg-zapyer-blue/10 rounded-full filter blur-xl"></div>
             <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-zapyer-green/10 rounded-full filter blur-xl"></div>
-            <div className="rounded-lg overflow-hidden transform scale-300">
+            <div className="rounded-lg overflow-hidden transform scale-[400%] my-20">
               <img 
                 src="/lovable-uploads/4b28a225-b59c-4c8f-9e0f-3ebf5f3377f1.png" 
                 alt="Zapyer Chat Interface no laptop e celular" 
