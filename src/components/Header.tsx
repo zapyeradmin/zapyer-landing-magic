@@ -86,7 +86,10 @@ const Header: React.FC = () => {
                 <MessageSquare size={18} />
                 Fale Conosco no WhatsApp
               </button>
-              <button className="secondary-button">
+              <button 
+                onClick={handleWhatsAppClick}
+                className="secondary-button"
+              >
                 Saiba Mais
               </button>
             </div>

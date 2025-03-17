@@ -31,6 +31,12 @@ const VideoSection: React.FC = () => {
   const handlePlayVideo = () => {
     setIsVideoPlaying(true);
   };
+  
+  const handleWhatsAppClick = () => {
+    const message = "Olá, gostaria de testar o Zapyer Chat gratuitamente!";
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`http://wa.me/5587996316081?text=${encodedMessage}`, '_blank');
+  };
 
   return (
     <section className="py-20 px-6 bg-zapyer-light relative overflow-hidden">
@@ -77,7 +83,10 @@ const VideoSection: React.FC = () => {
         </div>
         
         <div className="flex justify-center mt-10">
-          <button className="primary-button">
+          <button 
+            onClick={handleWhatsAppClick}
+            className="primary-button"
+          >
             Teste Grátis Agora
           </button>
         </div>
