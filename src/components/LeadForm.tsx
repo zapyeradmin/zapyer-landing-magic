@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { X, Send, Loader2 } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 
 const LeadForm: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,16 +27,31 @@ const LeadForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
+    // Prepare WhatsApp message with user data
+    const message = `Olá, me chamo ${formData.name}! 
+Email: ${formData.email}
+Telefone: ${formData.phone}
+
+Gostaria de saber mais sobre o Zapyer Chat!`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/5587996316081?text=${encodedMessage}`;
+    
+    // Simulate a brief loading state before redirecting
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsOpen(false);
       toast({
-        title: "Formulário enviado com sucesso!",
-        description: "Em breve nossa equipe entrará em contato.",
+        title: "Redirecionando para o WhatsApp",
+        description: "Você será conectado com nossa equipe agora.",
       });
+      
+      // Reset form data
       setFormData({ name: '', email: '', phone: '' });
-    }, 1500);
+      setIsOpen(false);
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappURL, '_blank');
+    }, 1000);
   };
 
   const toggleForm = () => {
@@ -70,58 +88,55 @@ const LeadForm: React.FC = () => {
           
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-zapyer-dark mb-1">
+              <div className="space-y-1.5">
+                <Label htmlFor="name">
                   Nome
-                </label>
-                <input
+                </Label>
+                <Input
                   type="text"
                   id="name"
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-zapyer-blue"
                   placeholder="Seu nome"
                 />
               </div>
               
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-zapyer-dark mb-1">
+              <div className="space-y-1.5">
+                <Label htmlFor="email">
                   E-mail
-                </label>
-                <input
+                </Label>
+                <Input
                   type="email"
                   id="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-zapyer-blue"
                   placeholder="seu@email.com"
                 />
               </div>
               
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-zapyer-dark mb-1">
+              <div className="space-y-1.5">
+                <Label htmlFor="phone">
                   Telefone
-                </label>
-                <input
+                </Label>
+                <Input
                   type="tel"
                   id="phone"
                   name="phone"
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-zapyer-blue"
                   placeholder="(00) 00000-0000"
                 />
               </div>
               
-              <button
+              <Button
                 type="submit"
-                disabled={isSubmitting}
                 className="w-full primary-button"
+                disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   <>
@@ -131,7 +146,7 @@ const LeadForm: React.FC = () => {
                 ) : (
                   <span>Enviar</span>
                 )}
-              </button>
+              </Button>
             </div>
           </form>
         </div>
