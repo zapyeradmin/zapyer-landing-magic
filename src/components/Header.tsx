@@ -49,6 +49,7 @@ const Header: React.FC = () => {
         <div className="hidden md:flex space-x-8 items-center">
           <a href="#benefits" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Benefícios</a>
           <a href="#features" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Funcionalidades</a>
+          <a href="#pricing" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Planos</a>
           <a href="#testimonials" className="text-zapyer-dark hover:text-zapyer-blue transition-colors">Depoimentos</a>
           <button 
             onClick={handleWhatsAppClick}
@@ -86,12 +87,12 @@ const Header: React.FC = () => {
                 <MessageSquare size={18} />
                 Fale Conosco no WhatsApp
               </button>
-              <button 
-                onClick={handleWhatsAppClick}
+              <a 
+                href="#pricing"
                 className="secondary-button"
               >
-                Saiba Mais
-              </button>
+                Ver Planos
+              </a>
             </div>
           </div>
         </div>

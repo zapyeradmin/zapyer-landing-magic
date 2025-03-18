@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Benefits from '@/components/Benefits';
 import VideoSection from '@/components/VideoSection';
 import Features from '@/components/Features';
+import PricingTables from '@/components/PricingTables';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
@@ -45,6 +46,7 @@ const Index: React.FC = () => {
       <Benefits />
       <VideoSection />
       <Features />
+      <PricingTables />
       <Testimonials />
       <CallToAction />
       <Footer />
