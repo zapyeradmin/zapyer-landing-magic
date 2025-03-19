@@ -72,66 +72,62 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="gp notp">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-20 px-6 bg-zapyer-light relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-zapyer-blue/5 to-zapyer-green/5 z-0"></div>
+      <div className="container mx-auto relative z-10">
+        <h2 className="section-title">O que nossos clientes dizem</h2>
+        <p className="section-subtitle">
+          Empresas de todos os tamanhos já transformaram seu atendimento com o Zapyer Chat
+        </p>
+        
         <div 
           ref={testimonialsRef} 
-          className="max-w-4xl mx-auto opacity-0"
+          className="relative max-w-4xl mx-auto mt-12 opacity-0"
         >
-          <div className="relative p-8 md:p-12 bg-white rounded-xl shadow-lg">
-            <div className="mb-8 text-center">
-              <h2 className="text-3xl font-bold mb-2">O que nossos clientes dizem</h2>
-              <p className="text-zapyer-gray">
-                Empresas de todos os tamanhos já transformaram seu atendimento com o Zapyer Chat
-              </p>
-            </div>
-            
+          {/* Testimonial Carousel */}
+          <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <div className="flex flex-col items-center text-center">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="w-16 h-16 rounded-full mb-4"
-                    />
-                    <div className="flex mb-2">
-                      {[...Array(testimonial.stars)].map((_, i) => (
-                        <Star key={i} size={16} fill="#FFD700" className="text-[#FFD700]" />
-                      ))}
+                  <div className="glass-card p-8 rounded-xl shadow-lg">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 rounded-full overflow-hidden">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-zapyer-dark">{testimonial.name}</h3>
+                        <p className="text-zapyer-gray text-sm">{testimonial.role}</p>
+                        <div className="flex mt-1">
+                          {[...Array(testimonial.stars)].map((_, i) => (
+                            <Star key={i} size={16} fill="#FFD700" className="text-[#FFD700]" />
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-zapyer-dark italic mb-4">"{testimonial.content}"</p>
-                    <h3 className="font-bold text-lg text-zapyer-dark">{testimonial.name}</h3>
-                    <p className="text-zapyer-blue text-sm">{testimonial.role}</p>
+                    <p className="text-zapyer-dark italic">"{testimonial.content}"</p>
                   </div>
                 </div>
               ))}
             </div>
-            
-            <div className="absolute inset-y-0 left-0 flex items-center">
-              <button 
-                onClick={prevSlide}
-                className="p-2 rounded-full bg-white shadow-md text-zapyer-blue hover:bg-zapyer-blue hover:text-white transition-colors -ml-4"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft size={24} />
-              </button>
-            </div>
-            
-            <div className="absolute inset-y-0 right-0 flex items-center">
-              <button 
-                onClick={nextSlide}
-                className="p-2 rounded-full bg-white shadow-md text-zapyer-blue hover:bg-zapyer-blue hover:text-white transition-colors -mr-4"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
-            
-            <div className="flex justify-center mt-6 gap-2">
+          </div>
+          
+          {/* Navigation Buttons */}
+          <div className="flex justify-center mt-6 gap-4">
+            <button 
+              onClick={prevSlide}
+              className="p-2 rounded-full bg-white shadow-md text-zapyer-blue hover:bg-zapyer-blue hover:text-white transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -143,6 +139,13 @@ const Testimonials: React.FC = () => {
                 />
               ))}
             </div>
+            <button 
+              onClick={nextSlide}
+              className="p-2 rounded-full bg-white shadow-md text-zapyer-blue hover:bg-zapyer-blue hover:text-white transition-colors"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
       </div>

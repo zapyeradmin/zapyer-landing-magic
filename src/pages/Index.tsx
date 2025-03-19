@@ -1,28 +1,16 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import AboutSection from '@/components/AboutSection';
-import ScreenshotsSection from '@/components/ScreenshotsSection';
+import Benefits from '@/components/Benefits';
+import VideoSection from '@/components/VideoSection';
 import Features from '@/components/Features';
-import Newsletter from '@/components/Newsletter';
-import TeamSection from '@/components/TeamSection';
+import PricingTables from '@/components/PricingTables';
 import Testimonials from '@/components/Testimonials';
-import ContactSection from '@/components/ContactSection';
+import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import LeadForm from '@/components/LeadForm';
-import MobileMenu from '@/components/MobileMenu';
 
 const Index: React.FC = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Toggle mobile menu
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
   // Smooth scrolling for anchor links
   useEffect(() => {
     const smoothScroll = (e: MouseEvent) => {
@@ -40,11 +28,6 @@ const Index: React.FC = () => {
             targetElement.scrollIntoView({
               behavior: 'smooth'
             });
-            
-            // Close mobile menu if open
-            if (mobileMenuOpen) {
-              setMobileMenuOpen(false);
-            }
           }
         }
       }
@@ -55,22 +38,17 @@ const Index: React.FC = () => {
     return () => {
       document.removeEventListener('click', smoothScroll);
     };
-  }, [mobileMenuOpen]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      <Header toggleMobileMenu={toggleMobileMenu} />
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-      <HeroSection />
-      <ServicesSection />
-      <WhyChooseUs />
-      <AboutSection />
-      <ScreenshotsSection />
-      <Newsletter />
-      <TeamSection />
+      <Header />
+      <Benefits />
+      <VideoSection />
       <Features />
+      <PricingTables />
       <Testimonials />
-      <ContactSection />
+      <CallToAction />
       <Footer />
       <LeadForm />
     </div>
