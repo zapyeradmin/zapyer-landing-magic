@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             utiliza o WhatsApp.
           </p>
           <p className="text-gray-400 text-sm mb-6">
-            © 2025 Zapyer Chat - Todos os direitos reservados. (Versão Atualizada)
+            © 2025 Zapyer Chat - Todos os direitos reservados.
           </p>
           
           <div className="flex justify-center space-x-4">
