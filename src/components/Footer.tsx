@@ -13,60 +13,41 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-zapyer-dark text-white py-8 sm:py-12 px-4 sm:px-6">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {/* Logo and description */}
-          <div className="flex flex-col items-center sm:items-start">
-            <div className="mb-3 sm:mb-4">
-              <img 
-                src="/lovable-uploads/b78caee9-300c-4e95-8069-0de56aa843a1.png" 
-                alt="Zapyer Chat Logo" 
-                className="h-10 sm:h-12 mb-3"
-              />
-            </div>
-            <p className="text-gray-300 text-sm sm:text-base text-center sm:text-left mb-4 max-w-xs">
-              Transforme seu atendimento no WhatsApp com nossa solução completa de multiatendimento.
-            </p>
-          </div>
+    <footer className="gp tp315 bg-zapyer-dark text-white">
+      <div className="container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4">
+            <span className="text-zapyer-blue">Zapyer</span>
+            <span className="text-zapyer-green">Chat</span>
+          </h1>
+          <p className="text-gray-300 mb-8">
+            Centralize a comunicação, aumente a eficiência e impulsione suas vendas. 
+            Nossa solução foi desenvolvida para transformar a maneira como sua empresa 
+            utiliza o WhatsApp.
+          </p>
+          <p className="text-gray-400 text-sm mb-6">
+            © 2025 Zapyer Chat - Todos os direitos reservados.
+          </p>
           
-          {/* Resources */}
-          <div className="flex flex-col items-center sm:items-start">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center sm:text-left">Recursos</h3>
-            <ul className="space-y-2 text-center sm:text-left">
-              <li><a href="#benefits" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Benefícios</a></li>
-              <li><a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Funcionalidades</a></li>
-              <li><a href="#testimonials" className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base">Depoimentos</a></li>
-            </ul>
+          <div className="flex justify-center space-x-4">
+            <a 
+              href="#"
+              onClick={handleWhatsAppClick}
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-zapyer-blue transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageSquare size={20} />
+            </a>
+            <a 
+              href="https://www.instagram.com/zapyer.io/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-zapyer-blue transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
           </div>
-          
-          {/* Contact */}
-          <div className="flex flex-col items-center sm:items-start">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center sm:text-left">Contato</h3>
-            <div className="space-y-3 flex flex-col items-center sm:items-start">
-              <button 
-                onClick={handleWhatsAppClick}
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
-              >
-                <MessageSquare size={isMobile ? 16 : 18} />
-                <span>WhatsApp</span>
-              </button>
-              <a 
-                href="https://www.instagram.com/zapyer.io/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
-              >
-                <Instagram size={isMobile ? 16 : 18} />
-                <span>Instagram</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        {/* Copyright */}
-        <div className="border-t border-gray-700/50 mt-8 sm:mt-10 pt-5 text-center text-gray-400 text-xs sm:text-sm">
-          <p>© 2025 Zapyer Chat - Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
